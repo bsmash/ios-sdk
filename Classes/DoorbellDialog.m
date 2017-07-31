@@ -54,9 +54,9 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         [[NSNotificationCenter defaultCenter]
-         addObserver:self selector:@selector(orientationChanged:)
-         name:UIDeviceOrientationDidChangeNotification
-         object:[UIDevice currentDevice]];
+                addObserver:self selector:@selector(orientationChanged:)
+                                 name:UIDeviceOrientationDidChangeNotification
+                                 object:[UIDevice currentDevice]];
     }
     return self;
 }
@@ -84,9 +84,9 @@ NSString * const DoorbellSite = @"http://doorbell.io";
     // Hide the keyboard, so when the dialog is centered is looks OK
     UIDevice *device = [note object];
     if ([device orientation] != UIDeviceOrientationFaceUp &&
-        [device orientation] != UIDeviceOrientationFaceDown &&
-        [device orientation] != UIDeviceOrientationUnknown &&
-        [device orientation] != self.lastDeviceOrientation )
+            [device orientation] != UIDeviceOrientationFaceDown &&
+            [device orientation] != UIDeviceOrientationUnknown &&
+            [device orientation] != self.lastDeviceOrientation )
     {
         [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
         self.lastDeviceOrientation = [device orientation];
@@ -183,7 +183,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 {
     if (!_sendingLabel) {
         _sendingLabel = [[UILabel alloc] initWithFrame:_bodyView.frame];
-            _sendingLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+        _sendingLabel.font = [UIFont boldSystemFontOfSize:18.0f];
         _sendingLabel.textAlignment = NSTextAlignmentCenter;
         _sendingLabel.textColor =  [UIColor colorWithRed:91/255.0f green:192/255.0f blue:222/255.0f alpha:1.0f];
         _sendingLabel.text = NSLocalizedString(@"Sending ...", nil);
@@ -256,13 +256,13 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 {
     UIColor *brandColor = [UIColor colorWithRed:91/255.0f green:192/255.0f blue:222/255.0f alpha:1.0f];
 
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 200.0f, 20.0f)];
-    titleLabel.text = NSLocalizedString(@"Feedback", nil);
-        titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
-    titleLabel.textAlignment = NSTextAlignmentLeft;
-    titleLabel.textColor = brandColor;
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 200.0f, 20.0f)];
+    self.titleLabel.text = NSLocalizedString(@"Feedback", nil);
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+    self.titleLabel.textAlignment = NSTextAlignmentLeft;
+    self.titleLabel.textColor = brandColor;
 
-    [_boxView addSubview:titleLabel];
+    [_boxView addSubview:self.titleLabel];
 
 
     CALayer *line = [CALayer layer];
@@ -273,14 +273,14 @@ NSString * const DoorbellSite = @"http://doorbell.io";
     _bodyView = [[UITextView alloc] initWithFrame:CGRectMake(10.0f, 45.0f, 280.0f, 100)];
     _bodyView.delegate = self;
     _bodyView.textColor = [UIColor darkTextColor];
-        _bodyView.font = [UIFont systemFontOfSize:16.0f];
+    _bodyView.font = [UIFont systemFontOfSize:16.0f];
     _bodyView.dataDetectorTypes = UIDataDetectorTypeNone;
     _bodyView.layer.borderColor = brandColor.CGColor;
     _bodyView.layer.borderWidth = 1.0;
     _bodyView.keyboardAppearance = UIKeyboardAppearanceAlert;
 
     UIBarButtonItem *bodyDoneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", nil)
-                                                                    style:UIBarButtonItemStyleDone target:_bodyView action:@selector(resignFirstResponder)];
+                                                               style:UIBarButtonItemStyleDone target:_bodyView action:@selector(resignFirstResponder)];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     toolbar.items = [NSArray arrayWithObjects:flexibleSpace, bodyDoneButton, nil];
@@ -318,7 +318,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
     _emailField.autocorrectionType = UITextAutocorrectionTypeNo;
 
     UIBarButtonItem *emailDoneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", nil)
-                                                                       style:UIBarButtonItemStyleDone target:_emailField action:@selector(resignFirstResponder)];
+                                                                style:UIBarButtonItemStyleDone target:_emailField action:@selector(resignFirstResponder)];
     UIBarButtonItem *emailFlexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     UIToolbar *emailToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     emailToolbar.items = [NSArray arrayWithObjects:emailFlexibleSpace, emailDoneButton, nil];
@@ -361,7 +361,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 
     _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _sendButton.frame = CGRectMake(150.0f, 211.0f, 150.0f, 44.0f);
-        _sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
+    _sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
     [_sendButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     [_sendButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [_sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
