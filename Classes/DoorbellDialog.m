@@ -254,20 +254,22 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 
 - (void)createBoxSubviews
 {
-    UIColor *brandColor = [UIColor colorWithRed:91/255.0f green:192/255.0f blue:222/255.0f alpha:1.0f];
+    if (!self.brandColor) {
+        self.brandColor = [UIColor colorWithRed:91 / 255.0f green:192 / 255.0f blue:222 / 255.0f alpha:1.0f];
+    }
 
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 200.0f, 20.0f)];
     self.titleLabel.text = NSLocalizedString(@"Feedback", nil);
     self.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
-    self.titleLabel.textColor = brandColor;
+    self.titleLabel.textColor = self.brandColor;
 
     [_boxView addSubview:self.titleLabel];
 
 
     CALayer *line = [CALayer layer];
     line.frame = CGRectMake(0, 35.0f, 300.0f, 2.0f);
-    line.backgroundColor = brandColor.CGColor;
+    line.backgroundColor = self.brandColor.CGColor;
     [_boxView.layer addSublayer:line];
 
     _bodyView = [[UITextView alloc] initWithFrame:CGRectMake(10.0f, 45.0f, 280.0f, 100)];
@@ -275,7 +277,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
     _bodyView.textColor = [UIColor darkTextColor];
     _bodyView.font = [UIFont systemFontOfSize:16.0f];
     _bodyView.dataDetectorTypes = UIDataDetectorTypeNone;
-    _bodyView.layer.borderColor = brandColor.CGColor;
+    _bodyView.layer.borderColor = self.brandColor.CGColor;
     _bodyView.layer.borderWidth = 1.0;
     _bodyView.keyboardAppearance = UIKeyboardAppearanceAlert;
 
@@ -312,7 +314,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
     _emailField.borderStyle = UITextBorderStyleNone;
     _emailField.leftView = paddingView;
     _emailField.leftViewMode = UITextFieldViewModeAlways;
-    _emailField.layer.borderColor = brandColor.CGColor;
+    _emailField.layer.borderColor = self.brandColor.CGColor;
     _emailField.layer.borderWidth = 1.0;
     _emailField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _emailField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -338,7 +340,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
     poweredByButton.frame = CGRectMake(42.0f, 0.0f, 120.0f, 14.0f);
     poweredByButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     [poweredByButton setTitle:@"Doorbell.io" forState:UIControlStateNormal];
-    [poweredByButton setTitleColor:brandColor forState:UIControlStateNormal];
+    [poweredByButton setTitleColor:self.brandColor forState:UIControlStateNormal];
 
     [poweredByButton addTarget:self action:@selector(goToDoorbell:) forControlEvents:UIControlEventTouchUpInside];
     [_poweredBy addSubview:poweredByButton];

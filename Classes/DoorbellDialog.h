@@ -9,6 +9,7 @@
 @property (assign, nonatomic)   BOOL sending;
 @property (assign, nonatomic)   CGFloat verticleOffset;
 
+@property (strong, nonatomic) UIColor *brandColor;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UIView *boxView;
 @property (strong, nonatomic) UITextView *bodyView;
