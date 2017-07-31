@@ -5,14 +5,6 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 
 @interface DoorbellDialog ()
 
-@property (strong, nonatomic) UIView *boxView;
-@property (strong, nonatomic) UITextView *bodyView;
-@property (strong, nonatomic) UITextField *emailField;
-@property (strong, nonatomic) UIButton *cancelButton;
-@property (strong, nonatomic) UIButton *sendButton;
-@property (strong, nonatomic) UIView *poweredBy;
-@property (strong, nonatomic) UILabel *bodyPlaceHolderLabel;
-@property (strong, nonatomic) UILabel *sendingLabel;
 @property (strong, nonatomic) UIViewController *parentViewController;
 
 @property UIDeviceOrientation lastDeviceOrientation;
@@ -183,7 +175,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 -(void)setVerticleOffset:(CGFloat)verticleOffset
 {
     _verticleOffset = verticleOffset;
-    
+
     _boxView.frame = [self calculateNewBoxFrame:_boxView.frame];
 }
 
@@ -191,7 +183,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 {
     if (!_sendingLabel) {
         _sendingLabel = [[UILabel alloc] initWithFrame:_bodyView.frame];
-        _sendingLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+            _sendingLabel.font = [UIFont boldSystemFontOfSize:18.0f];
         _sendingLabel.textAlignment = NSTextAlignmentCenter;
         _sendingLabel.textColor =  [UIColor colorWithRed:91/255.0f green:192/255.0f blue:222/255.0f alpha:1.0f];
         _sendingLabel.text = NSLocalizedString(@"Sending ...", nil);
@@ -233,7 +225,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 {
     boxFrame.origin.x = (self.frame.size.width/2) - boxFrame.size.width/2;
     boxFrame.origin.y = ((self.frame.size.height - boxFrame.size.height) / 2) + _verticleOffset;
-    
+
     return boxFrame;
 }
 
@@ -266,7 +258,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 200.0f, 20.0f)];
     titleLabel.text = NSLocalizedString(@"Feedback", nil);
-    titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+        titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     titleLabel.textAlignment = NSTextAlignmentLeft;
     titleLabel.textColor = brandColor;
 
@@ -281,7 +273,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
     _bodyView = [[UITextView alloc] initWithFrame:CGRectMake(10.0f, 45.0f, 280.0f, 100)];
     _bodyView.delegate = self;
     _bodyView.textColor = [UIColor darkTextColor];
-    _bodyView.font = [UIFont systemFontOfSize:16.0f];
+        _bodyView.font = [UIFont systemFontOfSize:16.0f];
     _bodyView.dataDetectorTypes = UIDataDetectorTypeNone;
     _bodyView.layer.borderColor = brandColor.CGColor;
     _bodyView.layer.borderWidth = 1.0;
@@ -369,7 +361,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 
     _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _sendButton.frame = CGRectMake(150.0f, 211.0f, 150.0f, 44.0f);
-    _sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
+        _sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
     [_sendButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     [_sendButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [_sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];

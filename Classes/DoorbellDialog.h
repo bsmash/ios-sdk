@@ -9,6 +9,15 @@
 @property (assign, nonatomic)   BOOL sending;
 @property (assign, nonatomic)   CGFloat verticleOffset;
 
+@property (strong, nonatomic) UIView *boxView;
+@property (strong, nonatomic) UITextView *bodyView;
+@property (strong, nonatomic) UITextField *emailField;
+@property (strong, nonatomic) UIButton *cancelButton;
+@property (strong, nonatomic) UIButton *sendButton;
+@property (strong, nonatomic) UIView *poweredBy;
+@property (strong, nonatomic) UILabel *bodyPlaceHolderLabel;
+@property (strong, nonatomic) UILabel *sendingLabel;
+
 @property (strong, nonatomic) id delegate;
 
 - (id)initWithViewController:(UIViewController *)vc;

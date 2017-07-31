@@ -7,7 +7,6 @@ NSString * const UserAgent = @"Doorbell iOS SDK";
 @interface Doorbell () <DoorbellDialogDelegate>
 
 @property (copy, nonatomic)     DoorbellCompletionBlock block;//Block to give the result
-@property (strong, nonatomic)   DoorbellDialog *dialog;
 @property (strong, nonatomic)   NSMutableDictionary *properties;
 @property (strong, nonatomic)   NSMutableArray *images;
 @property (strong, nonatomic)   NSURLSession *session;
