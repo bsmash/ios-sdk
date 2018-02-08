@@ -14,6 +14,7 @@ typedef void (^DoorbellCompletionBlock)(NSError *error, BOOL isCancelled);
 @property (assign, nonatomic)   BOOL showPoweredBy;
 @property (assign, nonatomic)   CGFloat verticleOffset;
 @property (assign, nonatomic)   NSInteger viewTag;
+@property (strong, nonatomic)   UIColor *brandColor;
 @property (strong, nonatomic)   DoorbellDialog *dialog;
 
 - (id)initWithApiKey:(NSString *)apiKey appId:(NSString *)appID;

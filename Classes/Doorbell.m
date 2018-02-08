@@ -74,7 +74,9 @@ NSString * const UserAgent = @"Doorbell iOS SDK";
     }
 
     self.block = completion;
-    self.dialog = [[DoorbellDialog alloc] initWithViewController:vc];
+    self.dialog = [[DoorbellDialog alloc]
+            initWithViewController:vc
+            brandColor:self.brandColor];
     self.dialog.delegate = self;
     self.dialog.showEmail = self.showEmail;
     self.dialog.email = self.email;

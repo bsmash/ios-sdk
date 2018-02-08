@@ -22,7 +22,7 @@
 
 @property (strong, nonatomic) id delegate;
 
-- (id)initWithViewController:(UIViewController *)vc;
+- (id)initWithViewController:(UIViewController *)vc brandColor:(UIColor *)brandColor_;
 
 - (void)highlightEmailEmpty;
 - (void)highlightEmailInvalid;

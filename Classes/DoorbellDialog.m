@@ -45,12 +45,13 @@ NSString * const DoorbellSite = @"http://doorbell.io";
     return self;
 }
 
-- (id)initWithViewController:(UIViewController *)vc
+- (id)initWithViewController:(UIViewController *)vc brandColor:(UIColor *)brandColor_
 {
     CGRect frame = vc.view.bounds;
     self = [self initWithFrame:frame];
     if (self) {
         self.parentViewController = vc;
+        self.brandColor = brandColor_;
 
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         [[NSNotificationCenter defaultCenter]
