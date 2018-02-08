@@ -13,10 +13,11 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 
 @implementation DoorbellDialog
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame brandColor:(UIColor *)brandColor_
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _brandColor = brandColor_;
         _showEmail = YES;
         _showPoweredBy = YES;
         _sending = NO;
@@ -48,7 +49,7 @@ NSString * const DoorbellSite = @"http://doorbell.io";
 - (id)initWithViewController:(UIViewController *)vc brandColor:(UIColor *)brandColor_
 {
     CGRect frame = vc.view.bounds;
-    self = [self initWithFrame:frame];
+    self = [self initWithFrame:frame brandColor:brandColor_];
     if (self) {
         self.parentViewController = vc;
         self.brandColor = brandColor_;
